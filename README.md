@@ -33,15 +33,14 @@ You get power, but you don't understand what's happening or why.
 ├── tui.zh-cn.jsonc         ← TUI config (Chinese)
 ├── installation.md         ← Installation guide (for AI agents)
 ├── agents/
-│   └── careful.md         ← Agent that asks for confirmation
+│   ├── careful.md         ← Agent that asks for confirmation
+│   └── expert.md          ← Escalation agent
 ├── commands/
 │   ├── kickstart-config-mcp.md    ← Recommend and install MCP servers
 │   ├── kickstart-config-rule.md   ← Generate AGENTS.md interactively
 │   └── kickstart-config-skill.md  ← Recommend and install skills
 └── skills/
     ├── 14 superpowers symlinks (brainstorming, systematic-debugging, TDD, etc.)
-    ├── lazy-mcp-context7/         ← Search official lib/framework docs
-    ├── lazy-mcp-grep-app/         ← Search real-world code examples from GitHub
     ├── kickstart-creator-skill/   ← Create and improve skills
     └── kickstart-creator-command/ ← Create custom slash commands
 ```
@@ -52,8 +51,16 @@ Plugins extend OpenCode's core behavior. Defined in `opencode.jsonc`.
 
 | Plugin | Purpose |
 |--------|---------|
-| **@orionpax/opencode-lazy-mcp** | Lazy-loads skill-embedded MCP servers on demand |
 | **superpowers** | Skills for brainstorming, debugging, TDD, planning, and more. Auto-loads per-task. See "Skills" below. |
+
+## MCPs
+
+MCP servers are defined globally in `opencode.jsonc` and available in every session.
+
+| MCP | Purpose |
+|-----|---------|
+| **context7** | Query up-to-date official library/framework documentation |
+| **searchcode** | Search and analyze public git repositories |
 
 > ⚠️ **superpowers symlinks required**: OpenCode silently ignores the superpowers plugin's `config` hook ([#1087](https://github.com/obra/superpowers/issues/1087), [#1492](https://github.com/obra/superpowers/issues/1492)). After your first `opencode` run, create symlinks:
 >
@@ -191,7 +198,7 @@ Can run shell: !`git status`
 
 ### /kickstart-config-mcp
 
-Recommend and install MCP servers based on your project's tech stack. Searches PulseMCP (12,000+ servers) and MCP Market (20,000+ servers), presents a comparison table, and auto-creates skills with `lazy-mcp-` prefix.
+Recommend and install MCP servers based on your project's tech stack. Searches PulseMCP (12,000+ servers) and MCP Market (20,000+ servers), presents a comparison table, and writes the chosen servers directly into the `mcp` block of `opencode.jsonc`.
 
 ### /kickstart-config-rule
 
@@ -220,8 +227,6 @@ Skills are `SKILL.md` files placed in the `skills/` directory that inject domain
 
 | Skill | Description |
 | ----- | ----------- |
-| **lazy-mcp-context7** | Search up-to-date official library/framework documentation via Context7 MCP |
-| **lazy-mcp-grep-app** | Search real-world code examples from over a million public GitHub repositories |
 | **kickstart-creator-skill** | Create new skills, iteratively improve them, and optimize skill descriptions |
 | **kickstart-creator-command** | Create custom slash commands with proper structure and best practices |
 
@@ -244,7 +249,7 @@ Reply in Chinese.
 ```
 Use websearch for general web search.
 Use context7 to look up library and framework documentation.
-Use grep-app to search real-world code examples on GitHub.
+Use searchcode to search and analyze public git repositories.
 ```
 
 **Personal coding preferences**

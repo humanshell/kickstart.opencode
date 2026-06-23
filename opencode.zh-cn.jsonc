@@ -10,15 +10,21 @@
 
 	// 插件
 	"plugin": [
-		// opencode-lazy-loader: 按需懒加载 skill 内嵌的 MCP 服务器
-		// skill 可以自带 MCP 服务器，无需在全局配置中注册
-		// 详见: https://github.com/orionpax1997/opencode-lazy-mcp
-		"@orionpax/opencode-lazy-mcp",
-
 		// superpowers: 增强头脑风暴和问题解决能力
 		"superpowers@git+https://github.com/obra/superpowers.git"
 	],
 
 	// MCP 服务器 - 可在此定义或嵌入 skill 中
-	// "mcp": {}
+	"mcp": {
+		// context7: 查询最新的库文档和代码示例
+		"context7": {
+			"type": "remote",
+			"url": "https://mcp.context7.com/mcp"
+		},
+		// searchcode: 搜索和分析公共 git 仓库
+		"searchcode": {
+			"type": "remote",
+			"url": "https://api.searchcode.com/v1/mcp"
+		}
+	}
 }
