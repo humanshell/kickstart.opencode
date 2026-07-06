@@ -1,0 +1,13 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+
+	// Provider specific overrides
+	"provider": {
+		"opencode": {
+			"apiKey": "{env:OPENCODE_PERSONAL_APIKEY}"
+		},
+		"openrouter": {
+			"apiKey": "{env:OPENROUTER_PERSONAL_APIKEY}"
+		}
+	}
+}

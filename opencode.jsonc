@@ -8,6 +8,9 @@
 	// Lightweight model for simple tasks (title generation, etc.)
 	"small_model": "opencode/deepseek-v4-flash-free",
 
+	// Never use these providers
+	"disabled_providers": ["openai", "anthropic"],
+
 	// Local Ollama Config
 	"provider": {
 		"ollama": {
