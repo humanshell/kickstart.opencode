@@ -1,0 +1,6 @@
+context-mode
+node_modules
+package.json
+package-lock.json
+bun.lock
+herdr-tui-session.js
