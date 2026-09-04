@@ -7,5 +7,6 @@
 
   // Custom keybinds, leave empty to use default keybinds
   // Full configuration guide: https://opencode.ai/docs/en/keybinds/
-  "keybinds": {}
+  "keybinds": {},
+  "plugin": ["./herdr-tui-session.js"]
 }
