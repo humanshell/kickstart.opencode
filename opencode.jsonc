@@ -9,10 +9,17 @@
 	"small_model": "opencode/deepseek-v4-flash-free",
 
 	// Never use these providers
-	"disabled_providers": ["openai", "anthropic"],
+	//"disabled_providers": ["openai", "anthropic"],
 
-	// Local Ollama Config
 	"provider": {
+		// opencode-with-claude anthropic override
+		"anthropic": {
+			"options": {
+				"baseURL": "http://127.0.0.1:3456",
+				"apiKey": "dummy"
+			}
+		},
+		// Local Ollama Config
 		"ollama": {
 			"npm": "@ai-sdk/openai-compatible",
 			"name": "Ollama",
@@ -41,7 +48,9 @@
 		// context window optimization for AI coding agents
 		"context-mode",
 		// makes your AI agent think like the laziest senior dev in the room
-		"@dietrichgebert/ponytail"
+		"@dietrichgebert/ponytail",
+		// opencode-with-claude allows anthropic subscriptions to work
+		"file:///opt/homebrew/opt/opencode-with-claude/libexec/lib/node_modules/opencode-with-claude/dist/index.js"
 	],
 
 	// MCP servers - defined here or embedded in skills
