@@ -1,5 +1,6 @@
 {
 	"$schema": "https://opencode.ai/config.json",
+	"lsp": true,
 
 	// Primary model - uses OpenCode's built-in free model
 	// Can be replaced with your own model after getting started
